@@ -1,0 +1,106 @@
+﻿<phone:PhoneApplicationPage
+    xmlns:Controls="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps" 
+    x:Class="TwitBankApp.Add"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator x:Name="ProgressIndicator"  IsVisible="True"/>
+    </shell:SystemTray.ProgressIndicator>
+
+    
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/icons/back.png" Text="Назад" Click="CancelButton_Click"/>
+            <shell:ApplicationBarIconButton   IconUri="/icons/check.png" Text="Отправить" Click="TweetButton_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+    
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="Добавление информации о банке" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle2Style}"/>
+        </StackPanel>
+        
+        
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ScrollViewer Grid.Row="1"
+     Name="mainScrollViewer"
+     Margin="0,0,0,0"
+     VerticalScrollBarVisibility="Visible" AllowDrop="False" ManipulationMode="Control">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!--<Button Name="TwitButton" Content="Отправить" Click="TweetButton_Click"/>
+                        <Button Name="CancelButton" Content="Карта" Click="CancelButton_Click"/>-->
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Name="tbTwit" Margin="0,15,0,0" Text="Сообщение:*" VerticalAlignment="Top"  />
+                        <TextBox TextWrapping="Wrap" Height="150"  Name="TwitText" Text=""  VerticalAlignment="Top"  />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Name="tbBank"  Text="Банк (@account или имя банка):" VerticalAlignment="Top"  />
+                        <TextBox  Name="TwitBank" Text=""  VerticalAlignment="Top"  />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Name="tbInline"  Text="Длина очереди:" VerticalAlignment="Center"  />
+                        <TextBox  Name="TwitInline" Width="100" Text="" InputScope="Number"  VerticalAlignment="Top"  />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Name="tbTime"  Text="Время ожидания" VerticalAlignment="Top"  />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Name="tbTimet1"  VerticalAlignment="Center" Text="Часов:"  />
+                            <TextBox Width="100"  Name="TwitTimeHour" Text="" InputScope="Number"  VerticalAlignment="Top"  />
+                            <TextBlock Name="tbTimet"  Text="минут:" VerticalAlignment="Center" />
+                            <TextBox Width="100"  Name="TwitTimeMins"  Text="" InputScope="Number"  VerticalAlignment="Top"  />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Name="tbOpen"  Text="Окошек открыто:" VerticalAlignment="Center"  />
+                        <TextBox  Name="TwitOpen" Width="100" Text=""  InputScope="Number" VerticalAlignment="Top"  />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Name="tbClosed"  Text="Окошек закрыто:" VerticalAlignment="Center"  />
+                        <TextBox  Name="TwitClosed" Width="100" Text="" InputScope="Number"  VerticalAlignment="Top"  />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox  Name="TwitAngry"  VerticalAlignment="Top"  />
+                        <TextBlock Name="tbangry"  Text=" - Злые бабули" VerticalAlignment="Center"  />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox  Name="TwitChairs"  VerticalAlignment="Top"  />
+                        <TextBlock Name="tbchairs"  Text=" - Негде посидеть" VerticalAlignment="Center"  />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox  Name="TwitUssr"  VerticalAlignment="Top"  />
+                        <TextBlock Name="tbUssr"  Text=" - USSR style =(" VerticalAlignment="Center"  />
+                    </StackPanel>
+
+                    <StackPanel>
+                        <Button Name="TwitButton2" Content="Отправить" Click="TweetButton_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
